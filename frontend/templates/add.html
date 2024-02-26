@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Todo</title>
+</head>
+<body>
+    <h1>Bienvenue sur la Todo List de {{ configmap_name }}</h1>
+    <h1>Ajouter une Todo</h1>
+    <form id="addTodoForm">
+        <label for="list_name">Nom de la Todo List:</label>
+        <input type="text" id="list_name" name="list_name" required><br>
+
+        <label for="task_content">Contenu de la tâche:</label>
+        <input type="text" id="task_content" name="task_content" required><br>
+
+        <input type="submit" value="Ajouter cette Todo">
+    </form>
+    <a href="/">Retour à la liste</a>
+
+    <script>
+        document.getElementById('addTodoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const listName = document.getElementById('list_name').value;
+            const taskContent = document.getElementById('task_content').value;
+
+            fetch('http://127.0.0.1:80/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `list_name=${listName}&task_content=${taskContent}`,
+                mode: 'cors',
+            })
+            .then(response => response.json())
+            .then(result => {
+                alert(result.message);
+                window.location.href = 'http://127.0.0.1:80/';
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
+

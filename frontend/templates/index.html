@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue sur la Todo List de {{ configmap_name }}</title>
+</head>
+<body>
+    <h1>Bienvenue sur la Todo List de {{ configmap_name }}</h1>
+    {% for todo_list in todo_lists %}
+        <h2>{{ todo_list.name }}</h2>
+        <ul>
+            {% for task in todo_list.tasks %}
+                <li>{{ task.content }} - {{ task.status }} 
+                    {% if task.status == 'TODO' %}
+                        <button onclick="markAsDone({{ todo_list.id }}, {{ task.id }})">Marquer comme DONE</button>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        <button onclick="addTodo({{ todo_list.id }})">Ajouter cette todo</button>
+    {% endfor %}
+
+    <script>
+        async function markAsDone(todoId, taskId) {
+            const response = await fetch(`http://127.0.0.1:80/done/${todoId}/${taskId}`, {
+                method: 'GET',  // ou 'POST' selon votre choix
+                mode: 'cors',
+            });
+            const result = await response.json();
+            alert(result.message);
+            location.reload();
+        }
+
+        async function addTodo(todoId) {
+            window.location.href = `http://127.0.0.1:80/add?todo_id=${todoId}`;
+        }
+    </script>
+</body>
+</html>

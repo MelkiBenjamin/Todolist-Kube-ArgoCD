@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    image: back
+    ports:
+      - "8000:8000"
+    networks:
+      - mon_reseau
+    volumes:
+      - templates_volume:/app/frontend/templates
+
+  frontend:
+    image: front
+    ports:
+      - "80:80"
+    networks:
+      - mon_reseau
+    volumes:
+      - templates_volume:/app/frontend/templates
+
+networks:
+  mon_reseau:
+volumes:
+  templates_volume:

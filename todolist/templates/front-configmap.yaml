@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: front-configmap
+data:
+  BACKEND_URL: "http://back.{{ .Release.Namespace }}.svc.cluster.local:8000"
