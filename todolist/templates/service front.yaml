@@ -13,7 +13,7 @@ spec:
     protocol: TCP
     name: "80"
   selector:
-    app: frontend
+    app: front
   type: LoadBalancer
 status:
   loadBalancer: {}

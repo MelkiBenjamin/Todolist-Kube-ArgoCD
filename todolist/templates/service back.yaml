@@ -13,7 +13,7 @@ spec:
     protocol: TCP
     name: "8000"
   selector:
-    app: frontend
+    app: back
   type: ClusterIP
 status:
   loadBalancer: {}
