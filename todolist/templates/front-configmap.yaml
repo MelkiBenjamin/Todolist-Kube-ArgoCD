@@ -5,4 +5,5 @@ metadata:
   name: front-configmap
   namespace: benjamin
 data:
+  FRONTEND_NAME: "VotrePrenom"
   BACKEND_URL: "http://back.{{ .Release.Namespace }}.svc.cluster.local:8000"
