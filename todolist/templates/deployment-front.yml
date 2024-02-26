@@ -33,12 +33,12 @@ spec:
           limits:
             cpu: 200m
             memory: 64Mi
-        volumeMounts:
-        - name: templates-volume
-          mountPath: /app/templates  # Chemin où le volume sera monté dans le conteneur backend
+#        volumeMounts:
+#        - name: templates-volume
+#          mountPath: /app/templates  # Chemin où le volume sera monté dans le conteneur backend
 
-      volumes:
-      - name: templates-volume
-        persistentVolumeClaim:
-          claimName: templates-pvc
+#      volumes:
+#      - name: templates-volume
+#        persistentVolumeClaim:
+#          claimName: templates-pvc
 status: {}
