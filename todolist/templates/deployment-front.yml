@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: benjamin
+    app: front
   name: front
   namespace: benjamin
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: benjamin
+      app: front
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: benjamin
+        app: front
     spec:
       containers:
       - image: benjaminmelki/front:latest
