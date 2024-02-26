@@ -32,7 +32,7 @@ spec:
             memory: 64Mi
         volumeMounts:
         - name: shared-volume
-          mountPath: /app/frontend/templates  # Chemin où le volume sera monté dans le conteneur backend
+          mountPath: /app/templates  # Chemin où le volume sera monté dans le conteneur backend
 
       volumes:
       - name: shared-volume
