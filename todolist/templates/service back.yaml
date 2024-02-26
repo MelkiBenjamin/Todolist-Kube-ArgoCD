@@ -5,6 +5,7 @@ metadata:
   labels:
     app: back
   name: back
+  namespace: benjamin
 spec:
   ports:
   - port: 8000
