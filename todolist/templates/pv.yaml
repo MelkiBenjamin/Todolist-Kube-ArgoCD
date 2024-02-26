@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: templates-pv
+spec:
+  capacity:
+    storage: 100Mi  # Ajustez la capacité à 100 Mo
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: /app/templates  # Chemin sur le nœud du cluster où les données seront stockées
