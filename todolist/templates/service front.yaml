@@ -3,7 +3,7 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: front
+    app: benjamin
   name: front
   namespace: benjamin
 spec:
@@ -13,7 +13,7 @@ spec:
     protocol: TCP
     name: "80"
   selector:
-    app: front
+    app: benjamin
   type: LoadBalancer
 status:
   loadBalancer: {}
