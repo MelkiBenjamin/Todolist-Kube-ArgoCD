@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: front
+  name: front
+  namespace: benjamin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: front
+    spec:
+      containers:
+      - image: benjaminmelki/front:latest
+        envFrom:
+          - configMapRef: 
+              name: front-configmap
+        name: front
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 50m
+            memory: 32Mi
+          limits:
+            cpu: 200m
+            memory: 64Mi
+status: {}
