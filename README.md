@@ -1,4 +1,4 @@
 # To-do list Kube ArgoCD
 
-Ce projet est un projet de To-do list sur kubernetes. Il est constituer de 2 pods, un de Front et un de Back. 
-Le back s'affiche ainsi que le front s'il fonctionne tres bien local ne s'affiche pas sur Kubernetes.
+Ce projet est un projet de To-do list sur Kubernetes. Il est constitué de 2 pods, un de front et un de back. 
+Le back s'affiche ainsi que le front s'il fonctionne trés bien local ne s'affiche pas sur Kubernetes.
